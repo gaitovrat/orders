@@ -1,4 +1,4 @@
-package vsb.gai0010.system;
+package vsb.gai0010.orm.system;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum Error {
     FAILURE(1),
     IO(2),
-    PARSER(3);
+    PARSER(3),
+    USER_NOT_FOUND(4);
 
     private final int number;
 }

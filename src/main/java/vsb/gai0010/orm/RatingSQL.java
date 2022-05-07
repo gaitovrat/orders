@@ -1,8 +1,8 @@
-package vsb.gai0010.db;
+package vsb.gai0010.orm.db;
 
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.model.Cloth;
-import vsb.gai0010.model.Rating;
+import vsb.gai0010.orm.model.Cloth;
+import vsb.gai0010.orm.model.Rating;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

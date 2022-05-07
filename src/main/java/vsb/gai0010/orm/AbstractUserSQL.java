@@ -1,9 +1,9 @@
-package vsb.gai0010.db;
+package vsb.gai0010.orm.db;
 
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.model.Role;
-import vsb.gai0010.model.Status;
-import vsb.gai0010.model.User;
+import vsb.gai0010.orm.model.Role;
+import vsb.gai0010.orm.model.Status;
+import vsb.gai0010.orm.model.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +21,7 @@ public abstract class AbstractUserSQL implements ISQL<User> {
     public abstract String getUpdateIdSQL();
     public abstract String getDeleteSQL();
 
-    public List<User> select(String login, String email, String firstName, String secondName) throws SQLException {
+    public List<User> select(String login, String email, String firstName, String secondName) {
         login = '%' + (login == null ? "" : login) + '%';
         email = '%' + (email == null ? "" : email) + '%';
         firstName = '%' + (firstName == null ? "" : firstName) + '%';

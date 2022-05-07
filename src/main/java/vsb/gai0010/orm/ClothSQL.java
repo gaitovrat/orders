@@ -1,11 +1,11 @@
-package vsb.gai0010.db;
+package vsb.gai0010.orm.db;
 
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.model.Cloth;
-import vsb.gai0010.model.Order;
-import vsb.gai0010.model.Subcategory;
-import vsb.gai0010.model.User;
-import vsb.gai0010.util.Pair;
+import vsb.gai0010.orm.model.Cloth;
+import vsb.gai0010.orm.model.Order;
+import vsb.gai0010.orm.model.Subcategory;
+import vsb.gai0010.orm.model.User;
+import vsb.gai0010.orm.util.Pair;
 
 import java.sql.*;
 import java.util.ArrayList;

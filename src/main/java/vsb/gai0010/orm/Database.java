@@ -1,4 +1,4 @@
-package vsb.gai0010.db;
+package vsb.gai0010.orm.db;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,9 +17,9 @@ import org.xml.sax.SAXException;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.system.Error;
-import vsb.gai0010.util.ThrowingSupplier;
-import vsb.gai0010.util.XML;
+import vsb.gai0010.orm.system.Error;
+import vsb.gai0010.orm.util.ThrowingSupplier;
+import vsb.gai0010.orm.util.XML;
 
 @Log4j2
 @AllArgsConstructor

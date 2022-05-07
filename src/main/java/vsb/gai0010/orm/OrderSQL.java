@@ -1,4 +1,4 @@
-package vsb.gai0010.db;
+package vsb.gai0010.orm.db;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.model.Cloth;
-import vsb.gai0010.model.Order;
-import vsb.gai0010.model.OrderStatus;
-import vsb.gai0010.model.User;
-import vsb.gai0010.util.Pair;
+import vsb.gai0010.orm.model.Cloth;
+import vsb.gai0010.orm.model.Order;
+import vsb.gai0010.orm.model.OrderStatus;
+import vsb.gai0010.orm.model.User;
+import vsb.gai0010.orm.util.Pair;
 
 @Log4j2
 public class OrderSQL implements ISQL<Order> {

@@ -1,4 +1,4 @@
-package vsb.gai0010.util;
+package vsb.gai0010.orm.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

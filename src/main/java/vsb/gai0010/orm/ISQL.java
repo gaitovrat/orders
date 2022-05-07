@@ -1,4 +1,4 @@
-package vsb.gai0010.db;
+package vsb.gai0010.orm.db;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package vsb.gai0010.model;
+package vsb.gai0010.orm.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

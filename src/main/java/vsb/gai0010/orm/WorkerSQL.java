@@ -1,4 +1,4 @@
-package vsb.gai0010.db;
+package vsb.gai0010.orm.db;
 
 public class WorkerSQL extends AbstractUserSQL {
     private static final String INSERT = "INSERT INTO \"USER\"(login, password, email, phone_number, first_name, second_name, country, city, street, house_number, zip, status_id, role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 2, 3)";

@@ -2,3 +2,7 @@
 /scripts/csv
 .idea
 configuration.xml
+tailwind
+src/main/webapp/WEB-INF/lib
+src/main/webapp/tailwind
+target

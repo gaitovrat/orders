@@ -1,4 +1,4 @@
-package vsb.gai0010.util;
+package vsb.gai0010.orm.util;
 
 import java.sql.SQLException;
 
