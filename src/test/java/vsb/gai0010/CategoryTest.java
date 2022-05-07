@@ -6,7 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.db.CategorySQL;
+import vsb.gai0010.orm.CategorySQL;
 import vsb.gai0010.model.Category;
 
 import java.sql.SQLException;

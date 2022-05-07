@@ -6,9 +6,9 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import vsb.gai0010.db.CustomerSQL;
-import vsb.gai0010.db.OrderSQL;
-import vsb.gai0010.db.WorkerSQL;
+import vsb.gai0010.orm.CustomerSQL;
+import vsb.gai0010.orm.OrderSQL;
+import vsb.gai0010.orm.WorkerSQL;
 import vsb.gai0010.model.*;
 
 import java.sql.SQLException;

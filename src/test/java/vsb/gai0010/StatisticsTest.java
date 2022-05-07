@@ -7,8 +7,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import vsb.gai0010.db.StatisticsSQL;
-import vsb.gai0010.db.WorkerSQL;
+import vsb.gai0010.orm.StatisticsSQL;
+import vsb.gai0010.orm.WorkerSQL;
 import vsb.gai0010.model.User;
 import vsb.gai0010.util.Pair;
 

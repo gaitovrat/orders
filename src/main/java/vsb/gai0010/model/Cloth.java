@@ -1,9 +1,9 @@
-package vsb.gai0010.orm.model;
+package vsb.gai0010.model;
 
 import java.util.List;
 
 import lombok.*;
-import vsb.gai0010.orm.util.Pair;
+import vsb.gai0010.util.Pair;
 
 @Data
 @AllArgsConstructor

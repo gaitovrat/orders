@@ -119,3 +119,4 @@ INSERT INTO STATUS(name) VALUES ('busy');
 INSERT INTO "USER"(login, password, phone_number, status_id, role_id) VALUES ('admin', 'pass', '+420775184920', 1, 1);
 INSERT INTO "USER"(login, password, email, phone_number, first_name, second_name, country, city, street, house_number, zip, status_id, role_id) VALUES ('user', 'pass', 'example@mail.cz', '+420775184920', 'ratmir', 'gaitov', 'kazakhstan', 'ridder', 'lazo', '12/2', 70800, 1, 2);
 INSERT INTO "USER"(login, password, phone_number, status_id, role_id) VALUES ('worker', 'pass', '+420775184920', 2, 3);
+COMMIT;

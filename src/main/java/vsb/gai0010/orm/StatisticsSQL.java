@@ -1,7 +1,7 @@
-package vsb.gai0010.orm.db;
+package vsb.gai0010.orm;
 
-import vsb.gai0010.orm.model.User;
-import vsb.gai0010.orm.util.Pair;
+import vsb.gai0010.model.User;
+import vsb.gai0010.util.Pair;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

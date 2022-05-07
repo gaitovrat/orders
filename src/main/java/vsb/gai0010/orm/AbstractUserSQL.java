@@ -1,9 +1,9 @@
-package vsb.gai0010.orm.db;
+package vsb.gai0010.orm;
 
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.orm.model.Role;
-import vsb.gai0010.orm.model.Status;
-import vsb.gai0010.orm.model.User;
+import vsb.gai0010.model.Role;
+import vsb.gai0010.model.Status;
+import vsb.gai0010.model.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -6,7 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import lombok.extern.log4j.Log4j2;
-import vsb.gai0010.db.WorkerSQL;
+import vsb.gai0010.orm.WorkerSQL;
 import vsb.gai0010.model.Role;
 import vsb.gai0010.model.Status;
 import vsb.gai0010.model.User;

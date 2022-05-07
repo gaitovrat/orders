@@ -1,4 +1,4 @@
-package vsb.gai0010.orm.util;
+package vsb.gai0010.util;
 
 import java.io.IOException;
 import java.io.InputStream;

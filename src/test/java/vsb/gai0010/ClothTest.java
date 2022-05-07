@@ -6,8 +6,9 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import vsb.gai0010.db.*;
 import vsb.gai0010.model.*;
+import vsb.gai0010.orm.*;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;

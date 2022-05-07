@@ -1,4 +1,4 @@
-package vsb.gai0010.orm.model;
+package vsb.gai0010.model;
 
 import lombok.*;
 

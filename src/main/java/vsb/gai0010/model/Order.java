@@ -1,7 +1,7 @@
-package vsb.gai0010.orm.model;
+package vsb.gai0010.model;
 
 import lombok.*;
-import vsb.gai0010.orm.util.Pair;
+import vsb.gai0010.util.Pair;
 
 import java.util.Date;
 import java.util.List;
