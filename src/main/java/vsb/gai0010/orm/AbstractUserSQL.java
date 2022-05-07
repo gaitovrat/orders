@@ -70,13 +70,11 @@ public abstract class AbstractUserSQL implements ISQL<User> {
         	statement.setInt(1, id);
         	ResultSet resultSet = statement.executeQuery();
             user = fromResultSet(resultSet).get(0);
-        } catch (SQLException e) {
-        	log.error(e.getMessage());
-        } catch (IndexOutOfBoundsException e) {
+        } catch (SQLException | IndexOutOfBoundsException e) {
         	log.error(e.getMessage());
         }
 
-        return user;
+		return user;
     }
 
     @Override

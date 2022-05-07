@@ -1,9 +1,4 @@
-<%@ page import="vsb.gai0010.system.Error" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-  Error error = (Error) session.getAttribute("error");
-  request.setAttribute("error", error);
-%>
 <html>
 <head>
     <jsp:include page="base/head.jsp" />
@@ -30,7 +25,7 @@
             <input id="password" name="password" type="password" autocomplete="current-password" required
                    class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                    placeholder="Password">
-            <div class="text-red-600">${error == null ? "" : error.toString()}</div>
+            <div class="text-red-600">${sessionScope.get("error") == null ? "" : sessionScope.get("error").toString()}</div>
           </div>
         </div>
         <div>

@@ -1,9 +1,14 @@
 <%@ page import="vsb.gai0010.model.Cloth" %>
 <%@ page import="vsb.gai0010.orm.ClothSQL" %>
+<%@ page import="vsb.gai0010.model.OrderStatus" %>
+<%@ page import="vsb.gai0010.servlet.Attribute" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
     Cloth cloth = new ClothSQL().select(Integer.parseInt(request.getParameter("id")));
+    session.setAttribute(Attribute.CLOTH.toString(), cloth);
+
+    request.setAttribute("status", OrderStatus.WAITING_FOR_PAYMENT);
     request.setAttribute("cloth", cloth);
 %>
 
@@ -34,7 +39,7 @@
                             </section>
 
                             <section aria-labelledby="options-heading" class="mt-10">
-                                <form>
+                                <form method="post" action="${pageContext.request.contextPath}/updateOrder?status=${status.id}">
                                     <h3 class="text-lg font-extrabold text-gray-900 sm:pr-12">Description</h3>
                                     <div>${cloth.description}</div>
                                     <button type="submit"

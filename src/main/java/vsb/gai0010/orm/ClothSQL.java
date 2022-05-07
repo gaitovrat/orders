@@ -17,8 +17,7 @@ public class ClothSQL implements ISQL<Cloth> {
     private static final String SELECT = "SELECT * FROM CLOTH";
     private static final String SELECT_ID = "SELECT * FROM CLOTH WHERE id = ?";
     private static final String SELECT_FILTER = "SELECT * FROM CLOTH WHERE name LIKE ? AND subcategory_id = ? AND price >= ?";
-    private static final String SELECT_ORDERS = "SELECT order_id, count FROM MANY_ORDER_TO_MANY_CLOTH WHERE cloth_id = ?";
-    private static final String UPDATE = "UPDATE CLOTH SET name = ?, price = ?, count = ?, subcategory_id = ?, description = ? WHERE id = ?";
+	private static final String UPDATE = "UPDATE CLOTH SET name = ?, price = ?, count = ?, subcategory_id = ?, description = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM CLOTH WHERE id = ?";
     private static final String CALL = "{call PBuyCloth(?, ?, ?)}";
 
@@ -173,7 +172,6 @@ public class ClothSQL implements ISQL<Cloth> {
             		.count(resultSet.getInt("count"))
             		.subcategory(subcategory)
             		.description(resultSet.getString("description"))
-            		.orders(this.getOrders(id))
             		.build();
             
             cloths.add(cloth);
@@ -191,25 +189,5 @@ public class ClothSQL implements ISQL<Cloth> {
 
         return statement;
     }
-    
-    private List<Pair<Order, Integer>> getOrders(int clothId) {
-    	ArrayList<Pair<Order, Integer>> orders = new ArrayList<>();
-    	OrderSQL orderSQL = new OrderSQL();
-    	
-    	try (
-    			Database connection = Database.getConnection();
-    			PreparedStatement statement = connection.create(SELECT_ORDERS)
-    		) {
-    		statement.setInt(1, clothId);
-    		ResultSet resultSet = statement.executeQuery();
-    		while (resultSet.next()) {
-    			Order order = orderSQL.select(resultSet.getInt("order_id"));
-    			orders.add(new Pair<>(order, resultSet.getInt("count")));
-    		}
-    	} catch (SQLException e) {
-    		log.error(e.getMessage());
-    	}
-    	
-    	return orders;
-    }
+
 }

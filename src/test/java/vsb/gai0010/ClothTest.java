@@ -123,7 +123,6 @@ public class ClothTest {
         		.description("description")
         		.build();
     	clothSQL.insert(cloth);
-    	cloth.setOrders(new ArrayList<>());
         Cloth select = clothSQL.select(cloth.getId());
         Assert.assertEquals(select, cloth);
         clothSQL.delete(cloth);

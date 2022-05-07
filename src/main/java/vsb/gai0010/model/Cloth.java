@@ -15,5 +15,4 @@ public class Cloth {
     private int count;
     private Subcategory subcategory;
     private String description;
-    private List<Pair<Order, Integer>> orders;
 }
