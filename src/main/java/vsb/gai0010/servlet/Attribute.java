@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum LoginAttribute {
-    LOGIN("login"), PASSWORD("password"), ERROR("error");
+    LOGIN("login"), PASSWORD("password"), ERROR("error"), USER("user");
 
     private final String attribute;
 

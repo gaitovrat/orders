@@ -6,3 +6,6 @@ tailwind
 src/main/webapp/WEB-INF/lib
 src/main/webapp/tailwind
 target
+node_modules
+package-lock.json
+frontend/dist/style.css
