@@ -123,7 +123,7 @@ public class OrderTest {
     // Funkce 4.8
     @Test
     public void approveOrder() throws SQLException {
-        int out = orderSQL.approveOrderCall(orderTest);
+        int out = orderSQL.approveOrderCall(orderTest, workerTest);
         Assert.assertEquals(1, out);
     }
 }

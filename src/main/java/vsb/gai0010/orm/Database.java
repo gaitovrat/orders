@@ -72,7 +72,6 @@ public class Database implements AutoCloseable {
     public void open() throws SQLException {
         if (this.connection == null || this.connection.isClosed()) {
             this.connection = DriverManager.getConnection(this.url, this.username, this.password);
-            log.debug("Opened");
         }
     }
 
@@ -80,7 +79,6 @@ public class Database implements AutoCloseable {
     public void close() throws SQLException {
         if (!this.connection.isClosed()) {
             this.connection.close();
-            log.debug("Closed");
         }
     }
 

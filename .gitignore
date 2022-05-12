@@ -4,7 +4,7 @@
 configuration.xml
 tailwind
 src/main/webapp/WEB-INF/lib
-src/main/webapp/tailwind
+src/main/webapp/old/tailwind
 target
 node_modules
 package-lock.json

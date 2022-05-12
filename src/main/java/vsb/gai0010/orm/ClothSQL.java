@@ -2,10 +2,8 @@ package vsb.gai0010.orm;
 
 import lombok.extern.log4j.Log4j2;
 import vsb.gai0010.model.Cloth;
-import vsb.gai0010.model.Order;
 import vsb.gai0010.model.Subcategory;
 import vsb.gai0010.model.User;
-import vsb.gai0010.util.Pair;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -143,18 +141,18 @@ public class ClothSQL implements ISQL<Cloth> {
     @Override
 	public int delete(Cloth cloth) {
     	int out = -1;
-    	
+
     	try (Database connection = Database.getConnection()) {
     		out = connection.executeTransaction(() -> {
     			PreparedStatement statement = connection.create(DELETE);
     			statement.setInt(1, cloth.getId());
-    			
+
     			return statement.executeUpdate();
     		});
     	} catch (SQLException e) {
     		log.error(e.getMessage());
     	}
-    	
+
 		return out;
 	}
 
@@ -180,14 +178,13 @@ public class ClothSQL implements ISQL<Cloth> {
         return cloths;
     }
     
-    private PreparedStatement prepareStatement(PreparedStatement statement, Cloth cloth) throws SQLException {
+    private void prepareStatement(PreparedStatement statement, Cloth cloth) throws SQLException {
         statement.setString(1, cloth.getName());
         statement.setFloat(2, cloth.getPrice());
         statement.setInt(3, cloth.getCount());
         statement.setInt(4, cloth.getSubcategory().getId());
         statement.setString(5, cloth.getDescription());
 
-        return statement;
     }
 
 }

@@ -31,7 +31,7 @@ CREATE OR REPLACE PROCEDURE PApproveOrder(p_order_id IN INTEGER, p_worker_id IN 
 AS
 BEGIN
     UPDATE "USER" SET STATUS_ID = 3 WHERE ID = p_worker_id;
-    UPDATE "ORDER" SET ORDER_STATUS_ID = 2, WORKER_ID = p_worker_id WHERE ID = p_order_id;
+    UPDATE "ORDER" SET ORDER_STATUS_ID = 3, WORKER_ID = p_worker_id WHERE ID = p_order_id;
     COMMIT;
 EXCEPTION
     WHEN OTHERS THEN

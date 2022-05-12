@@ -3,6 +3,7 @@ package vsb.gai0010.model;
 import lombok.*;
 
 import java.util.Date;
+import java.util.Locale;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +24,16 @@ public class User {
     private Date deletedAt;
     private Status status;
     private Role role;
+
+    public String getFullName() {
+        return firstLetterCapitalize(this.getFirstName()) + " " + firstLetterCapitalize(this.getSecondName());
+    }
+
+    public String getAddress() {
+        return firstLetterCapitalize((this.country)) + ", " + firstLetterCapitalize(this.city);
+    }
+
+    private static String firstLetterCapitalize(String str) {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
 }

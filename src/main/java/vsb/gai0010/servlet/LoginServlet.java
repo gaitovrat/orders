@@ -24,13 +24,15 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+
         String login = req.getParameter(Attribute.LOGIN.toString());
         String password = req.getParameter(Attribute.PASSWORD.toString());
 
         User user = this.userSQL.select(login, password);
+
         if (user == null) {
             session.setAttribute(Attribute.ERROR.toString(), Error.USER_NOT_FOUND);
-            resp.sendRedirect(req.getContextPath() + "/signin.jsp");
+            resp.sendRedirect(req.getContextPath() + "/login.jsp");
         } else {
             session.setAttribute(Attribute.USER.toString(), user);
             session.setAttribute(Attribute.ERROR.toString(), null);

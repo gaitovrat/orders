@@ -29,12 +29,20 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>updateOrder</servlet-name>
-    <servlet-class>vsb.gai0010.servlet.UpdateOrderServlet</servlet-class>
+    <servlet-name>order</servlet-name>
+    <servlet-class>vsb.gai0010.servlet.OrderServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>updateOrder</servlet-name>
-    <url-pattern>/updateOrder</url-pattern>
+    <servlet-name>order</servlet-name>
+    <url-pattern>/order</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>orderItem</servlet-name>
+    <servlet-class>vsb.gai0010.servlet.OrderItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>orderItem</servlet-name>
+    <url-pattern>/orderItem</url-pattern>
+  </servlet-mapping>
 </web-app>

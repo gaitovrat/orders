@@ -16,17 +16,50 @@ import vsb.gai0010.util.Pair;
 
 @Log4j2
 public class OrderSQL implements ISQL<Order> {
-    private static final String SELECT = "SELECT * FROM \"ORDER\"";
+    private static final String SELECT = "SELECT * FROM \"ORDER\" WHERE order_status_id = 2";
     private static final String SELECT_ID = "SELECT * FROM \"ORDER\" WHERE id = ?";
-    private static final String SELECT_FOR_CUSTOMER = "SELECT * FROM \"ORDER\" WHERE user_id = ?";
+    private static final String SELECT_FOR_WORKER = "SELECT * FROM \"ORDER\" WHERE worker_id = ?";
+    private static final String SELECT_FOR_CUSTOMER = "SELECT * FROM \"ORDER\" WHERE user_id = ? AND order_status_id != 5";
     private static final String SELECT_CLOTHES = "SELECT cloth_id, count FROM MANY_ORDER_TO_MANY_CLOTH WHERE order_id = ?";
+    private static final String SELECT_BOUGHT = "SELECT * FROM \"ORDER\" WHERE order_status_id = 2";
     private static final String INSERT = "INSERT INTO \"ORDER\"(user_id, worker_id, order_status_id) VALUES(?, ?, ?)";
     private static final String UPDATE = "UPDATE \"ORDER\" SET worker_id = ?, order_status_id = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM \"ORDER\" WHERE id = ?";
+    private static final String DELETE_ITEM = "DELETE FROM MANY_ORDER_TO_MANY_CLOTH WHERE order_id = ? AND cloth_id = ?";
     private static final String SEND_ORDER_CALL = "{ call PSendOrder(?, ?) }";
     private static final String APPROVE_ORDER_CALL = "{ call PApproveOrder(?, ?) }";
 
-    public int approveOrderCall(Order order) {
+    public Order selectFor(User worker) {
+        Order order = null;
+
+        try (
+                Database connection = Database.getConnection();
+                PreparedStatement statement = connection.create(SELECT_FOR_WORKER);
+        ) {
+            statement.setInt(1, worker.getId());
+            ResultSet resultSet = statement.executeQuery();
+            order = this.fromResultSet(resultSet).get(0);
+        } catch (SQLException | IndexOutOfBoundsException e) {
+            log.error(e.getMessage());
+        }
+
+        return order;
+    }
+
+    public List<Order> selectBought() {
+        List<Order> orders = null;
+
+        try (Database connection = Database.getConnection()) {
+            ResultSet resultSet = connection.execute(SELECT_BOUGHT);
+            orders = this.fromResultSet(resultSet);
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+        }
+
+        return orders;
+    }
+
+    public int approveOrderCall(Order order, User worker) {
         int out = -1;
 
         try (
@@ -34,7 +67,7 @@ public class OrderSQL implements ISQL<Order> {
         		CallableStatement call = connection.createCall(APPROVE_ORDER_CALL)
         	) {
             call.setInt("p_order_id", order.getId());
-            call.setInt("p_worker_id", order.getWorker().getId());
+            call.setInt("p_worker_id", worker.getId());
 
             out = call.executeUpdate();
         } catch (SQLException e) {
@@ -44,7 +77,7 @@ public class OrderSQL implements ISQL<Order> {
         return out;
     }
 
-    public int sendOrderCall(Order order) throws SQLException {
+    public int sendOrderCall(Order order) {
     	int out = -1;
 
         try (        
@@ -173,6 +206,22 @@ public class OrderSQL implements ISQL<Order> {
 		}
 		return out;
 	}
+
+    public int deleteItem(Order order, Cloth cloth) {
+        int out = -1;
+
+        try (
+                Database connection = Database.getConnection();
+                PreparedStatement statement = connection.create(DELETE_ITEM)
+        ) {
+            statement.setInt(1, order.getId());
+            statement.setInt(2, cloth.getId());
+            out = statement.executeUpdate();
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+        }
+        return out;
+    }
 
 	public List<Order> fromResultSet(ResultSet resultSet) throws SQLException {
         ArrayList<Order> orders = new ArrayList<>();
